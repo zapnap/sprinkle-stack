@@ -9,7 +9,8 @@ set up the appropriate IP addresses and other configuration variables.
 Or customize the software that gets installed by editing install.rb.
 
 Running is as simple as:
-  sprinkle -c -s config/install.rb
+
+    sprinkle -c -s config/install.rb
 
 Will set up a brand new Unix system with all required software to run a Rails app.
 This installs supporting software and configures a "deploy" user that can deploy 
