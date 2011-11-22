@@ -24,6 +24,7 @@ policy :rails_stack, :roles => :app do
   requires :mini_magick
   requires :rails_log_analyzer
   requires :resque
+  requires :gitolite
 end
 
 policy :db_stack, :roles => :db do
@@ -35,7 +36,7 @@ policy :db_stack, :roles => :db do
   requires :logrotate
   # Servers
   requires :database_server
-  requires :sphinx
+  # requires :sphinx
 end
 
 deployment do
