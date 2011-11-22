@@ -4,17 +4,17 @@ CONFIG = {
   :production => {
     :apps => [
       {
-        :ip => 'host-ip-address',
+        :ip => '96.126.110.14',
         :ram => 500,
       },
     ],
     :db => {
-      :ip => 'host-ip-address',
+      :ip => '96.126.110.14',
       :ram => 500
     }
   }
 }
 
 REE_PATH = "/usr/local/ruby-enterprise"
-PASSENGER_VERSION = '3.0.7'
+PASSENGER_VERSION = '3.0.9'
 USER_TO_ADD = 'deploy'

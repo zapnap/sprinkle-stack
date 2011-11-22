@@ -13,8 +13,8 @@ package :gitolite do
     pre :install, "adduser #{git_user} --disabled-password --gecos ''"
 
     pre :install, "/usr/bin/git clone #{git}"
-    pre :install, "gitolite/src/gl-system-install > /tmp/gl-system-install.log"
-    pre :install, "su -l -c \"echo '' | gl-setup /tmp/key.pub\" #{git_user} > /tmp/gl-setup.log"
+    pre :install, "gitolite/src/gl-system-install > /tmp/gl-system-install.log 2>&1"
+    pre :install, "su -l -c \"echo '' | gl-setup /tmp/key.pub\" #{git_user} > /tmp/gl-setup.log 2>&1"
 
     post :install, "rm -rf gitolite"
     post :install, "rm /tmp/key.pub"
