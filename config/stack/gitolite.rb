@@ -7,17 +7,17 @@ package :gitolite do
 
   noop do
     pre :install, "su -l -c \"ssh-keygen -f /home/#{USER_TO_ADD}/.ssh/id_rsa -P ''\" #{USER_TO_ADD}"
-    pre :install, "cat /home/#{USER_TO_ADD}/.ssh/id_rsa.pub > /tmp/key.pub"
-    pre :install, "chmod ugo+r /tmp/key.pub"
+    pre :install, "cat /home/#{USER_TO_ADD}/.ssh/id_rsa.pub > /tmp/admin.pub"
+    pre :install, "chmod ugo+r /tmp/admin.pub"
 
     pre :install, "adduser #{git_user} --disabled-password --gecos ''"
 
     pre :install, "/usr/bin/git clone #{git}"
     pre :install, "gitolite/src/gl-system-install > /tmp/gl-system-install.log 2>&1"
-    pre :install, "su -l -c \"echo '' | gl-setup /tmp/key.pub\" #{git_user} > /tmp/gl-setup.log 2>&1"
+    pre :install, "su -l -c \"echo '' | gl-setup /tmp/admin.pub\" #{git_user} > /tmp/gl-setup.log 2>&1"
 
     post :install, "rm -rf gitolite"
-    post :install, "rm /tmp/key.pub"
+    post :install, "rm /tmp/admin.pub"
   end
 
   verify do
