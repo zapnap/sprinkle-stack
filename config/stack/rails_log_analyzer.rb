@@ -5,7 +5,7 @@ require 'ruby_enterprise'
 # Handles manual log parsing through CRON script, or via Scout app
 
 package :rails_log_analyzer do
-  desc 'Provides log parsing tools for Hodel3000 compliant logger.'
+  description 'Provides log parsing tools for Hodel3000 compliant logger.'
   gem 'production_log_analyzer rails_analyzer_tools request-log-analyzer' do
     post :install, "ln -sf #{REE_PATH}/bin/pl_analyze /usr/local/bin/pl_analyze"
   end
