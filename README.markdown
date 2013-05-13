@@ -21,3 +21,7 @@ After provisioning, you should:
 * Login and change the password of the 'deploy' user
 * Disallow root logins via SSH by editing the sshd_config file and setting "PermitRootLogin" to "no"
 * Lock down all ports except 80, 443 (web, ssl), 22 (ssh), and 1000 (webmin)
+
+
+WARNING: this is not actively maintained and may be out of date. But should serve as a good getting started template
+for your own stack.
