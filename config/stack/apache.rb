@@ -100,22 +100,15 @@ end
 package :apache_expires_support do
   apache_conf = "/etc/apache2/apache2.conf"
 
-  config = <<EOL
-
-# Passenger-stack-expires
-<IfModule mod_expires.c>
-  <FilesMatch "\.(jpg|gif|png|css|js)$">
-       ExpiresActive on
-       ExpiresDefault "access plus 1 year"
-   </FilesMatch>
-</IfModule>
-
-EOL
-
-  push_text config, apache_conf, :sudo => true do
-    post :install, 'a2enmod expires'
-    post :install, '/etc/init.d/apache2 restart'
+  # using cat and a file instead of push_text because for some fucked reason
+  # I can't get push_config to have a / correctly (it always ends up with \/ in the file)
+  transfer(
+    File.join(File.dirname(__FILE__), 'files/passenger-stack-expires-snip.txt'), 
+    '/tmp/passenger-stack-expires-snip.txt'
+  ) do
+    post :install, 'stat /tmp/passenger-stack-expires-snip.txt'
+    post :install, "cat /tmp/passenger-stack-expires-snip.txt >> #{apache_conf}"
   end
-  
+
   verify { file_contains apache_conf, "Passenger-stack-expires"}
 end
