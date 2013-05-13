@@ -1,11 +1,10 @@
 Sprinkle Stack
 ==============
 
-A customized Rails server install stack based on "passenger-stack" by
-Ben Schwarz and some related work by Seth Banks (subimage).
+A customized Rails server install stack for [Sprinkle](https://github.com/sprinkle-tool/sprinkle).
+Based on "passenger-stack" by Ben Schwarz and some related work by Seth Banks (subimage).
 
-Needs to be run via the ruby "sprinkle" gem. Edit the config.rb file to
-set up the appropriate IP addresses and other configuration variables.
+Edit the config.rb file to set up the appropriate IP addresses and other configuration variables.
 Or customize the software that gets installed by editing install.rb.
 
 Running is as simple as:
@@ -23,5 +22,5 @@ After provisioning, you should:
 * Lock down all ports except 80, 443 (web, ssl), 22 (ssh), and 1000 (webmin)
 
 
-WARNING: this is not actively maintained and may be out of date. But should serve as a good getting started template
-for your own stack.
+**WARNING**: this project is not actively maintained and may be out of date. But should serve as a good getting
+started template for your own stack.
