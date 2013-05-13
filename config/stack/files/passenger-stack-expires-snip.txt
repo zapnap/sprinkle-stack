@@ -1,0 +1,7 @@
+# Passenger-stack-expires
+<IfModule mod_expires.c>
+  <FilesMatch "\.(jpg|gif|png|css|js)$">
+       ExpiresActive on
+       ExpiresDefault "access plus 1 year"
+   </FilesMatch>
+</IfModule>
